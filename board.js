@@ -26,7 +26,7 @@ function draw() {
     background(200);
 
     drawBoard();
-    loadFromFen('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR');
+    loadFromFen('rnb1kbnr/pp1ppppp/1q6/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R'); //rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR
 }
 
 function drawBoard() {
@@ -88,14 +88,14 @@ function loadFromFen(fenstring) {
             case 'Q': placePiece('Q', x, y); x = x + 1; break; //White queen
             case 'K': placePiece('K', x, y); x = x + 1; break; //White king
 
-            case '1': break;
-            case '2': x = 1; break;
-            case '3': x = 2; break;
-            case '4': x = 3; break;
-            case '5': x = 4; break;
-            case '6': x = 5; break;
-            case '7': x = 6; break;
-            case '8': x = 7; break;
+            case '1': x = x + 1; break;
+            case '2': x = x + 2; break;
+            case '3': x = x + 3; break;
+            case '4': x = x + 4; break;
+            case '5': x = x + 5; break;
+            case '6': x = x + 6; break;
+            case '7': x = x + 7; break;
+            case '8': x = x + 8; break;
 
             case '/': y = y + 1; x = 0; break; //Newline
         }
