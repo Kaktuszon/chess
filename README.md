@@ -1,1 +1,1 @@
-A chess board created with Javascript and P5JS
+A chess board created with Javascript and <a href="https://p5js.org/">P5JS</a>
