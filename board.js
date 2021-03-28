@@ -26,7 +26,7 @@ function draw() {
     background(200);
 
     drawBoard();
-    loadFromFen('rnb1kbnr/pp1ppppp/1q6/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R'); //rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR
+    loadFromFen('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR');
 }
 
 function drawBoard() {
