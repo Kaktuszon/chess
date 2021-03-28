@@ -50,8 +50,22 @@ function placePiece(piece, x, y) {
         fill(0);
     }
 
+    piece = correctPieceToUnicode(piece);
+
     textSize(32);
     text(piece, (x * tileSize) + 16, (y * tileSize) + 48);
+}
+
+function correctPieceToUnicode(piece) {
+    piece = piece.toUpperCase();
+    switch (piece) {
+        case 'P': return '♙'; break; //White pawn
+        case 'R': return '♖'; break; //White rock
+        case 'N': return '♘'; break; //White knight
+        case 'B': return '♗'; break; //White bishop
+        case 'Q': return '♕'; break; //White queen
+        case 'K': return '♔'; break; //White king
+    }
 }
 
 function loadFromFen(fenstring) {
@@ -60,14 +74,14 @@ function loadFromFen(fenstring) {
     for (let i = 0; i < fenstring.length; i++) {
         let c = fenstring.charAt(i);
         switch (c) {
-            case 'p': placePiece('o', x, y); x = x + 1; break; //Black pawn
+            case 'p': placePiece('p', x, y); x = x + 1; break; //Black pawn
             case 'r': placePiece('r', x, y); x = x + 1; break; //Black rock
             case 'n': placePiece('n', x, y); x = x + 1; break; //Black knight
             case 'b': placePiece('b', x, y); x = x + 1; break; //Black bishop
             case 'q': placePiece('q', x, y); x = x + 1; break; //Black queen
             case 'k': placePiece('k', x, y); x = x + 1; break; //Black king
 
-            case 'P': placePiece('O', x, y); x = x + 1; break; //White pawn
+            case 'P': placePiece('P', x, y); x = x + 1; break; //White pawn
             case 'R': placePiece('R', x, y); x = x + 1; break; //White rock
             case 'N': placePiece('N', x, y); x = x + 1; break; //White knight
             case 'B': placePiece('B', x, y); x = x + 1; break; //White bishop
