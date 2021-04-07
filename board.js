@@ -37,28 +37,9 @@ function drawBoard() {
             let squarecolor = (isLight) ? black : white;
             fill(squarecolor);
 
-            if(board[y][x] >= 30) {
-                fill(125);
-            }
-
             square(x * tileSize, y * tileSize, tileSize);
         }
     }
-}
-
-function mousePressed() {
-    for(let y = 0; y < 8; y++) {
-        for(let x = 0; x < 8; x++) {
-            if(mouseX > x*tileSize && mouseX < (x*tileSize)+tileSize) {
-                if(mouseY > y*tileSize && mouseY < (y*tileSize)+tileSize) {
-                    rect(x*tileSize, y*tileSize, tileSize, tileSize);
-                    board[y][x] = board[y][x] + 30;
-                    print(board[y][x]);
-                }
-            }
-        }
-    }
-    return false;
 }
 
 function placePiece(piece, x, y) {
