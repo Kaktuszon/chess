@@ -68,8 +68,6 @@ function placePiece(piece, x, y) {
         fill(0);
     }
 
-    assignValueOfPieceToBoard(piece, x, y);
-
     piece = correctPieceToUnicode(piece);
 
     textSize(32);
@@ -91,43 +89,25 @@ function correctPieceToUnicode(piece) {
     }
 }
 
-function assignValueOfPieceToBoard(piece, x, y) {
-    switch (piece) {
-        case 'p': board[y][x] = 11; break; //Black pawn
-        case 'r': board[y][x] = 14; break; //Black rock
-        case 'n': board[y][x] = 13; break; //Black knight
-        case 'b': board[y][x] = 12; break; //Black bishop
-        case 'q': board[y][x] = 15; break; //Black queen
-        case 'k': board[y][x] = 16; break; //Black king
-
-        case 'P': board[y][x] = 21; break; //White pawn
-        case 'R': board[y][x] = 24; break; //White rock
-        case 'N': board[y][x] = 23; break; //White knight
-        case 'B': board[y][x] = 22; break; //White bishop
-        case 'Q': board[y][x] = 25; break; //White queen
-        case 'K': board[y][x] = 26; break; //White king
-    }
-}
-
 function loadFromFen(fenstring) {
     let x = 0;
     let y = 0;
     for (let i = 0; i < fenstring.length; i++) {
         let c = fenstring.charAt(i);
         switch (c) {
-            case 'p': placePiece('p', x, y); x = x + 1; break; //Black pawn
-            case 'r': placePiece('r', x, y); x = x + 1; break; //Black rock
-            case 'n': placePiece('n', x, y); x = x + 1; break; //Black knight
-            case 'b': placePiece('b', x, y); x = x + 1; break; //Black bishop
-            case 'q': placePiece('q', x, y); x = x + 1; break; //Black queen
-            case 'k': placePiece('k', x, y); x = x + 1; break; //Black king
+            case 'p': placePiece('p', x, y); board[y][x] = 11; x = x + 1; break; //Black pawn
+            case 'r': placePiece('r', x, y); board[y][x] = 14; x = x + 1; break; //Black rock
+            case 'n': placePiece('n', x, y); board[y][x] = 13; x = x + 1; break; //Black knight
+            case 'b': placePiece('b', x, y); board[y][x] = 12; x = x + 1; break; //Black bishop
+            case 'q': placePiece('q', x, y); board[y][x] = 15; x = x + 1; break; //Black queen
+            case 'k': placePiece('k', x, y); board[y][x] = 16; x = x + 1; break; //Black king
 
-            case 'P': placePiece('P', x, y); x = x + 1; break; //White pawn
-            case 'R': placePiece('R', x, y); x = x + 1; break; //White rock
-            case 'N': placePiece('N', x, y); x = x + 1; break; //White knight
-            case 'B': placePiece('B', x, y); x = x + 1; break; //White bishop
-            case 'Q': placePiece('Q', x, y); x = x + 1; break; //White queen
-            case 'K': placePiece('K', x, y); x = x + 1; break; //White king
+            case 'P': placePiece('P', x, y); board[y][x] = 21; x = x + 1; break; //White pawn
+            case 'R': placePiece('R', x, y); board[y][x] = 24; x = x + 1; break; //White rock
+            case 'N': placePiece('N', x, y); board[y][x] = 23; x = x + 1; break; //White knight
+            case 'B': placePiece('B', x, y); board[y][x] = 22; x = x + 1; break; //White bishop
+            case 'Q': placePiece('Q', x, y); board[y][x] = 25; x = x + 1; break; //White queen
+            case 'K': placePiece('K', x, y); board[y][x] = 26; x = x + 1; break; //White king
 
             case '1': x = x + 1; break;
             case '2': x = x + 2; break;
